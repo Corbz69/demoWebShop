@@ -1,5 +1,6 @@
 import HomePageObjects from "../support/page-objects/HomePageObjects";
 import RegisterUserPageObjects from "../support/page-objects/RegisterUserPageObjects";
+import LoginPageObjects from "../support/page-objects/LoginPageObjects";
 
 Cypress.Commands.add("visitDemoWebApp", () => {
     cy.fixture("environmentData.json").then((data) => {
@@ -7,6 +8,24 @@ Cypress.Commands.add("visitDemoWebApp", () => {
         cy.visit(appUrl)
     });
 });
+
+Cypress.Commands.add("LogInToDemoWebApp", () => {
+    cy.fixture("userData.json").then((data) => {
+        const userEmail = data.email;
+        const userPassword = data.password;
+        cy.NavigateToLoginPage()
+        // Insert Email
+        LoginPageObjects.EmailInputField(userEmail);
+        //Insert the password
+        LoginPageObjects.PasswordInputField(userPassword);
+        LoginPageObjects.ReturningCustomerLoginBtnClick()
+    });
+});
+
+Cypress.Commands.add("NavigateToLoginPage", () => {
+    HomePageObjects.LoginUserBTN()
+        .click();
+})
 
 Cypress.Commands.add("registerUser", () => {
     // Fetching the fixture data for testing artifacts, using what is returned
