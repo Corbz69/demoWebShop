@@ -1,9 +1,0 @@
-[
-    {
-        "browserName": "chrome",
-        "version": "latest"
-    }
-    // { "browserName": "firefox", "version": "latest"  },
-    // { "browserName": "edge", "version": "latest"  },
-    // { "browserName": "safari", "version": "latest"  }
-]

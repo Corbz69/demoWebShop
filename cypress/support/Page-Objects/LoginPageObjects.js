@@ -22,5 +22,9 @@ class LoginPageObjects {
     button.click()
     return;
   }
+
+  ClickOnHomeLogo() {
+    return cy.get('.header-logo').click();
+  }
 }
 export default new LoginPageObjects();

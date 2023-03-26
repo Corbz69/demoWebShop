@@ -1,6 +1,7 @@
 import HomePageObjects from "../support/page-objects/HomePageObjects";
 import RegisterUserPageObjects from "../support/page-objects/RegisterUserPageObjects";
 import LoginPageObjects from "../support/page-objects/LoginPageObjects";
+import SearchPageObjects from "./Page-Objects/SearchPageObjects";
 
 Cypress.Commands.add("visitDemoWebApp", () => {
     cy.fixture("environmentData.json").then((data) => {
@@ -13,6 +14,7 @@ Cypress.Commands.add("LogInToDemoWebApp", () => {
     cy.fixture("userData.json").then((data) => {
         const userEmail = data.email;
         const userPassword = data.password;
+        cy.visitDemoWebApp();
         cy.NavigateToLoginPage()
         // Insert Email
         LoginPageObjects.EmailInputField(userEmail);
@@ -66,4 +68,21 @@ Cypress.Commands.add("registerUser", () => {
         //Click Register
         RegisterUserPageObjects.RegisterButtonClick();
     })
+});
+
+Cypress.Commands.add("searchAndValidateProduct", () => {
+    cy.fixture("productData.json").then((data) => {
+        const product = data.product
+        cy.LogInToDemoWebApp();
+        LoginPageObjects.ClickOnHomeLogo();
+        HomePageObjects.FetchProductUsingSearchInputField(product)
+        cy.url().should("include", "/search");
+        cy.url().should("include", `${product}`)
+        cy.validateSearchedProduct(product)
+        SearchPageObjects.SelectAddToCartBTN()
+    })
+})
+
+Cypress.Commands.add("validateSearchedProduct", (product) => {
+    SearchPageObjects.ValidateProductOnPage(product)
 });
