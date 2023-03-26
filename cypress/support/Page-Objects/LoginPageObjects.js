@@ -12,6 +12,10 @@ class LoginPageObjects {
       .type(userPassword);;
   }
 
+  LoginErrorMessageLabel() {
+    return cy.get('.validation-summary-errors');
+  }
+
   ReturningCustomerLoginBtnClick() {
     const container = cy.get('.form-fields')
     const button = container.find('.buttons')

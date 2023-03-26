@@ -18,6 +18,7 @@ Cypress.Commands.add("LogInToDemoWebApp", () => {
         LoginPageObjects.EmailInputField(userEmail);
         //Insert the password
         LoginPageObjects.PasswordInputField(userPassword);
+        // Click on the login button
         LoginPageObjects.ReturningCustomerLoginBtnClick()
     });
 });
