@@ -9,5 +9,14 @@ class SearchPageObjects {
     const productContainer = cy.get(".search-results")
     productContainer.find('.button-2').click()
   }
+
+  numberOfCheckedOutItems() {
+    return cy.get(".cart-qty")
+  }
+
+  selectCheckoutNavBTN() {
+    return cy.get('.ico-cart > .cart-label')
+      .click()
+  }
 }
 export default new SearchPageObjects();

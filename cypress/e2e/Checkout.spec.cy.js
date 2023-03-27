@@ -1,3 +1,5 @@
+import SearchPageObjects from "../support/Page-Objects/SearchPageObjects";
+
 describe('Users can search then add items into the checkout basket', () => {
 
   //Store the amount of Browsers we want to be in the forEach loop.
@@ -26,8 +28,13 @@ describe('Users can search then add items into the checkout basket', () => {
           });
           it('I can search for a product and add to checkout', () => {
             // Calling custom function from cypress "commands.js" to search for products
-            cy.searchAndValidateProduct()
-
+            cy.searchAndValidateProduct();
+            SearchPageObjects.numberOfCheckedOutItems()
+              .should('contain', 1);
+            SearchPageObjects.selectCheckoutNavBTN();
+            cy.removeCheckoutItem();
+            SearchPageObjects.numberOfCheckedOutItems()
+              .should('contain', 0);
           });
         });
       });
