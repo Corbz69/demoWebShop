@@ -1,0 +1,48 @@
+name: Cypress demoWebShop Tests
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  cypress-run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: |
+          sudo apt update
+          yarn
+          cd cypress/config
+          chmod +x pre-cypressSetup.sh
+          chmod +x end-cypress.sh
+          cd ../..
+
+      - name: Run Cypress spec files
+        run: |
+          npx cypress run
+        continue-on-error: true
+
+      - name: Copy test execution videos
+        run: |
+          mkdir public
+          cp -r cypress/videos public/videos
+
+      - name: Merge test results into one
+        run: |
+          npm run report:merge
+
+      - name: Generate HTML report
+        run: |
+          cd ep3
+          npm run report:generate
+
+      - name: Deploy report page
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{secrets.GITHUB_TOKEN }}
+          publish_dir: |
+            ./public
