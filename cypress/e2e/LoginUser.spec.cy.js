@@ -40,7 +40,7 @@ describe('Our user can log in to the App', () => {
             //Testing the response status, double assertion on the login
             cy.wait("@loginRequest").its("response.statusCode").should("equal", 302);
           });
-          it.only('User CANT login with incorrect credentials', () => {
+          it('User CANT login with incorrect credentials', () => {
             // Monitoring the network requests of the application. Looking for the login request!
             cy.intercept({
               method: "POST",

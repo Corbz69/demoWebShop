@@ -10,5 +10,15 @@ class CartPageObjects {
     const updateBtn = cy.get(".update-cart-button")
     updateBtn.click();
   }
+
+  selectTermsAndConditionsBTN() {
+    const termsAndConditionsBTN = cy.get('[id="termsofservice"]')
+    termsAndConditionsBTN.click();
+  }
+
+  selectCheckoutBTN() {
+    const checkoutBTN = cy.get('[id="checkout"]')
+    checkoutBTN.click();
+  }
 }
 export default new CartPageObjects();

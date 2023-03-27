@@ -9,7 +9,8 @@ module.exports = defineConfig({
       //'cypress/e2e/**/*.{js,jsx,ts,tsx}',
       "cypress/e2e/RegisterUser.spec.cy.js",
       "cypress/e2e/LoginUser.spec.cy.js",
-      "cypress/e2e/Checkout.spec.cy.js"
+      "cypress/e2e/Checkout.spec.cy.js",
+      "cypress/e2e/CleanUp.spec.cy.js"
     ],
   },
 });
