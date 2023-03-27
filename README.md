@@ -22,6 +22,7 @@
 # What would I do differnetly
 - Would increase the amount of scope the test cases are covering. There is potential to create many more assertions along the journey's.
 - On the payments journey, to eliminate more risk with the tests, I would love to make sure the price of the product is correct. If there were an API to call, I would love to get the product information via the API and then create the assertions on the Frontend!
+- Would love to habe finished and made the CI | CD pipeline work. Good basis to start though.
 - Performance increases. These tests would be added onto a CI | CD pipeline, would love to make sure the tests are as fast as possible, ensure there are no cy.wait() commands for example.
 
 
