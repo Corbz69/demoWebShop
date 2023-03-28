@@ -15,7 +15,7 @@
 
 # Why Ive chosen the test cases
 - They eliminate / mitigate the risk of the above. 
-- They are a good basis to identify if functionality is not working properly
+- They are a good basis to identify if crucial functionality is not working properly
 - They are what I concider to be the MVP functionality of the journey's.
 - (Assumption) The use cases I have chosen would cover the most used features of the App!
 
@@ -38,3 +38,19 @@
 - Head to the folder cypress/config and run the command ```chmod +x pre-cypressSetup.sh```
 - Same folder as above ```chmod +x end-cypress.sh```
 - Then run the command ```npx cypress run```
+
+![image](https://user-images.githubusercontent.com/25659775/228176589-0313f8e4-07e7-47ea-973a-8f06fb24e55b.png)
+
+## Register a User:
+
+https://user-images.githubusercontent.com/25659775/228176944-8b9a67f2-550c-4136-a085-6004cdacefeb.mp4
+
+
+## Login User:
+
+https://user-images.githubusercontent.com/25659775/228176911-56ee131b-fa61-4bb0-bf22-385c8cb8246c.mp4
+
+
+## Checkout functionality:
+https://user-images.githubusercontent.com/25659775/228176817-5f19fc54-42ce-49b2-8f77-8f4b9a9eb28f.mp4
+
