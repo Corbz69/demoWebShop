@@ -1,5 +1,3 @@
-import HomePageObjects from "../support/page-objects/HomePageObjects";
-
 describe('A new user can Register', () => {
 
   //Store the amount of Browsers we want to be in the forEach loop.
